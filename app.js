@@ -5,9 +5,9 @@ const path = require("path");
 const port = process.env.PORT || 3000;
 
 //set thư mục chứa views (giao diện - frontend)
-app.set("views", path.join(__dirname, "/views"));
+app.set("views", path.join(__dirname, "/views/hbs"));
 //set view engine (template engine)
-app.set("view engine", "pug");
+app.set("view engine", "hbs");
 
 //render ra trang home (index.hbs)
 //get: get method
@@ -28,6 +28,14 @@ app.get("/city", (req, res) => {
   });
 });
 
+
+app.get("/login", (req, res) => {
+    res.render("login");
+  });
+  
+  app.get("/logout", (req, res) => {
+    res.render("logout");
+  });
 //chạy web server
 app.listen(port, () => {
   console.log("Server is running at: http://localhost:3000");
